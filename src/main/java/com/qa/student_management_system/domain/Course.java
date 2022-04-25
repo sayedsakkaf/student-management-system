@@ -38,7 +38,7 @@ public class Course {
 	@ManyToMany(mappedBy = "courses", fetch = FetchType.EAGER)
 	@JsonIgnore
 	private List<Student> student;
-	
+
 	public Course() {
 		super();
 	}
