@@ -1,5 +1,6 @@
 package com.qa.student_management_system.domain;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,12 +9,13 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table (name = "course")
@@ -33,10 +35,10 @@ public class Course {
 	@NotBlank
 	private String courseDescription;
 	
-	@ManyToOne(optional = true, fetch = FetchType.LAZY)
-	@JoinColumn(name = "student_id", referencedColumnName = "id")
-	private Student student;
-	
+	@ManyToMany(mappedBy = "courses", fetch = FetchType.EAGER)
+	@JsonIgnore
+	private List<Student> student;
+
 	public Course() {
 		super();
 	}
