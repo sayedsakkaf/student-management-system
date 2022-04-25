@@ -1,9 +1,16 @@
 package com.qa.student_management_system.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -26,8 +33,16 @@ public class Student {
 	private String surname;
 	
 	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "student_course",
+				joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"),
+				inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"))
+	private List<Course> courses;
 	
-	protected Student () {		
+	
+	protected Student () {
+		super();
+		this.courses = new ArrayList<>();
 	}
 
 
