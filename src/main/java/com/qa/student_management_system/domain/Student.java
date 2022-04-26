@@ -44,13 +44,20 @@ public class Student {
 		super();
 		this.courses = new ArrayList<>();
 	}
-
-
+	
 	public Student(String firstName, String surname) {
-		
 		super();
 		this.firstName = firstName;
 		this.surname = surname;
+		this.courses = new ArrayList<>();
+	}
+
+
+	public  Student(String firstName, String surname, List<Course> courses) {
+		super();
+		this.firstName = firstName;
+		this.surname = surname;
+		this.courses = courses;
 	}
 
  
