@@ -18,7 +18,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 
-
 import com.qa.student_management_system.domain.Course;
 import com.qa.student_management_system.dto.CourseDTO;
 import com.qa.student_management_system.dto.NewCourseDTO;
@@ -87,6 +86,28 @@ public class CourseServiceUnitTest {
 		assertEquals(expectedMessage, exception.getMessage());
 		verify(courseRepository).findById(id);
 		
+	}
+	
+	@Test
+	public void createCourseTest() {
+		Course course = courses.get(0);
+		Course newCourse = new Course(course.getCourseTitle(), course.getCourseDescription());
+		CourseDTO expected = courseDTOs.get(0);
+		
+		NewCourseDTO courseDTO = new NewCourseDTO(course.getCourseTitle(), course.getCourseDescription());
+		CourseDTO createdCourseDTO = new CourseDTO(course.getId(), course.getCourseTitle(), course.getCourseDescription());
+		
+		when(modelMapper.map(courseDTO, Course.class)).thenReturn(newCourse);
+		when(courseRepository.save(newCourse)).thenReturn(course);
+		when(modelMapper.map(course, CourseDTO.class)).thenReturn(createdCourseDTO);
+		
+		CourseDTO actual = courseService.createCourse(courseDTO);
+		
+		assertEquals(expected, actual);
+		verify(modelMapper).map(courseDTO, Course.class);
+		verify(courseRepository).save(newCourse);
+		verify(modelMapper).map(course, CourseDTO.class);
+	
 	}
 	
 
