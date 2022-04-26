@@ -28,16 +28,17 @@ public class DevStartupListener implements ApplicationListener<ApplicationReadyE
 
 	@Override
 	public void onApplicationEvent(ApplicationReadyEvent event) {
-		List<Student> students = studentRepository.saveAll(List.of(
-				new Student("John", "Doe"), new Student ("Jane", "Smith")));
 		
-		Student student = students.stream().filter(m -> m.getFirstName().equals("John")).findFirst().orElse(null);
-		
-		
+
 		List<Course> courses = courseRepository.saveAll(List.of(
 				new Course("Information Technology", "Course designed to give an understanding of the computer technology needs of people"),
-				new Course("History", "The study of the past - the lasts 6000 years, approximately, from the fist evidence of human writing "
+				new Course("History", "The study of the past - the lasts 6000 years, approximately, from the fist evidence of human writing"
 						)));
+		
+		List<Student> students = studentRepository.saveAll(List.of(
+				new Student("John", "Doe", courses.subList(0, 1)), 
+				new Student ("Jane", "Smith", courses.subList(1, 2))));
+		
 		
 	}
 }
