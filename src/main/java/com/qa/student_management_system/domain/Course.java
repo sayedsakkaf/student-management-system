@@ -37,9 +37,9 @@ public class Course {
 	
 	@ManyToMany(mappedBy = "courses", fetch = FetchType.EAGER)
 	@JsonIgnore
-	private List<Student> student;
+	private List<Student> students;
 
-	public Course() {
+	protected Course() {
 		super();
 	}
 	
@@ -47,6 +47,13 @@ public class Course {
 		super();
 		this.courseTitle = courseTitle;
 		this.courseDescription = courseDescription;
+	}
+	
+	public Course(String courseTitle, String courseDescription, List <Student> students) {
+		super();
+		this.courseTitle = courseTitle;
+		this.courseDescription = courseDescription;
+		this.students = students;
 	}
 	
 
