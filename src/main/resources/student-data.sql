@@ -1,0 +1,1 @@
+INSERT INTO `student` (`first_name`, `surname`) VALUES ('John', 'Doe'), ('Jane', 'Smith');
