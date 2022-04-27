@@ -21,7 +21,7 @@ import com.qa.student_management_system.dto.StudentDTO;
 import com.qa.student_management_system.repository.StudentRepository;
 
 @SpringBootTest
-@Sql(scripts = {"classpath:schema.sql", "classpath:student-data.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+@Sql(scripts = {"classpath:schema.sql", "classpath:data.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 @ActiveProfiles({"test"})
 public class StudentServiceIntegrationTest {
 	
