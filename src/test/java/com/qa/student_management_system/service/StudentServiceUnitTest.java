@@ -1,7 +1,6 @@
 package com.qa.student_management_system.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -104,5 +103,22 @@ public class StudentServiceUnitTest {
 		verify(modelMapper).map(student, StudentDTO.class);
 		
 		}
-	
+	@Test
+	public void updateTest() {
+		Student student = students.get(1);
+		int id = student.getId();
+		NewStudentDTO newStudentDTO = new NewStudentDTO(student.getFirstName(), student.getSurname());
+		StudentDTO expected = new StudentDTO(student.getId(), student.getFirstName(), student.getSurname());
+		when(studentRepository.existsById(id)).thenReturn(true);
+		when(studentRepository.getById(id)).thenReturn(student);
+		when(modelMapper.map(student, StudentDTO.class)).thenReturn(expected);
+		
+		StudentDTO actual = studentService.updateStudent(newStudentDTO, id);
+		
+		assertEquals(expected, actual);
+		verify(studentRepository).existsById(id);
+		verify(studentRepository).getById(id);
+		verify(modelMapper).map(student, StudentDTO.class);
+
+	}
 }

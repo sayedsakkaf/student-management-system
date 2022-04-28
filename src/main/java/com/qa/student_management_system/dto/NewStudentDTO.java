@@ -19,6 +19,16 @@ public class NewStudentDTO {
 	public NewStudentDTO() {
 		super();
 	}
+	
+	
+
+	public NewStudentDTO(String firstName, String surname) {
+		super();
+		this.firstName = firstName;
+		this.surname = surname;
+	}
+
+
 
 	public String getFirstName() {
 		return firstName;
