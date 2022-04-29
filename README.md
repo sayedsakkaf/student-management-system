@@ -1,4 +1,4 @@
-# Student Management System (Front-end)
+# Student Management System (Back-end)
 > By Sayed Sakkaf
 
 Test coverage (src/main/java): 64%
