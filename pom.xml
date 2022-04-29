@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.qa</groupId>
-	<artifactId>course_management_system</artifactId>
+	<artifactId>student_management_system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>course_management_system</name>
+	<name>student_management_system</name>
 	<description>A student-course management system</description>
 	<properties>
 		<java.version>11</java.version>
