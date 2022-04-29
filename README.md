@@ -1,23 +1,28 @@
+# Student Management System
+> By Sayed Sakkaf
 
+Test coverage: 64%
 
-Coverage: 34%
-# Course Management System
+* [Kanban board](https://sayedsakkaf.atlassian.net/jira/software/projects/SMS/boards/4)
 
-A course enrolment management system for a college/university
-
-## Getting Started
+## Introduction
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+### Applications used:
 
-What things you need to install the software and how to install them
+Below is a list of applications that I had used to complete my project
 
-```
-Give examples
-```
 
-### Installing
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [Spring Tools Suite](https://spring.io/tools) - Back-end Development
+* [Visual Studio Code](https://code.visualstudio.com/download) - Front-end Development
+* [MySQL](https://dev.mysql.com/downloads/) - Database Management
+* Java/ SpringBoot - Lanuage and method used for back-end development
+* HTML, JavaScript and CSS - Langauges used in front-end development
+
+
+### Installing:
 
 A step by step series of examples that tell you how to get a development env running
 
@@ -66,26 +71,14 @@ Give an example
 
 Add additional notes about how to deploy this on a live system
 
-## Built With
-
-* [Maven](https://maven.apache.org/) - Dependency Management
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors
 
-* **Chris Perrins** - *Initial work* - [christophperrins](https://github.com/christophperrins)
+* **Sayed** - *Project Development* - [sayedsakkaf](https://github.com/sayedsakkaf)
 
-## License
-
-This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md) file for details 
-
-*For help in [Choosing a license](https://choosealicense.com/)*
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Special thanks the the 22FebEnable3 cohort for peer support
+* Special thanks to Morgan Walsh - Trainer
+
