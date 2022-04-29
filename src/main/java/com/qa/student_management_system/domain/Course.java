@@ -1,5 +1,6 @@
 package com.qa.student_management_system.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -54,6 +55,13 @@ public class Course {
 		this.courseTitle = courseTitle;
 		this.courseDescription = courseDescription;
 		this.students = students;
+	}
+	
+	public Course(int id, String courseTitle, String courseDescription) {
+		super();
+		this.id = id;
+		this.courseTitle = courseTitle;
+		this.courseDescription = courseDescription;
 	}
 	
 

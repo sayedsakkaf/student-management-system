@@ -2,6 +2,7 @@ package com.qa.student_management_system.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -59,6 +60,14 @@ public class Student {
 		this.surname = surname;
 		this.courses = courses;
 	}
+	
+	public Student(int id, String firstName, String surname) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.surname = surname;
+		this.courses = new ArrayList<>();
+	}
 
  
 	public int getId() {
@@ -88,6 +97,24 @@ public class Student {
 
 	public void setSurname(String surname) {
 		this.surname = surname;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(courses, firstName, id, surname);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		return Objects.equals(courses, other.courses) && Objects.equals(firstName, other.firstName) && id == other.id
+				&& Objects.equals(surname, other.surname);
 	}
 
 		
