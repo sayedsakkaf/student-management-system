@@ -1,5 +1,7 @@
 package com.qa.student_management_system.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,6 +94,15 @@ public class StudentControllerSystemIntegrationTest {
 		
 		mockMvc.perform(request)
 			.andExpectAll(statusMatcher, locationMatcher, contentMatcher);
+	}
+	
+	@Test
+	public void deleteStudentTest() throws Exception {
+		this.mockMvc.perform(MockMvcRequestBuilders
+				.delete("/student/1")
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk());
 	}
 
 }

@@ -65,6 +65,7 @@ public class CourseControllerWebLayerIntegrationTest {
 		assertEquals(expected, actual);
 		verify(courseService).createCourse(newCourse);
 	}
+	
 
 }
 

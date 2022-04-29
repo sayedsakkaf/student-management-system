@@ -1,5 +1,7 @@
 package com.qa.student_management_system.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +17,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -92,6 +95,15 @@ public class CourseControllerSystemIntegrationTest {
 		
 		mockMvc.perform(request)
 			.andExpectAll(statusMatcher, locationMatcher, contentMatcher);
+	}
+	
+	@Test
+	public void deleteCourseTest() throws Exception {
+		this.mockMvc.perform(MockMvcRequestBuilders
+				.delete("/course/1")
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk());
 	}
 
 }
