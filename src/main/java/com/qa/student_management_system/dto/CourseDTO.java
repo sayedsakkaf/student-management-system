@@ -29,6 +29,13 @@ public class CourseDTO {
 		this.courseDescription = courseDescription;
 	}
 	
+	public CourseDTO (int id, String courseTitle, String courseDescription) {
+		super();
+		this.id = id;
+		this.courseTitle = courseTitle;
+		this.courseDescription = courseDescription;
+	}
+	
 
 	public int getId() {
 		return id;

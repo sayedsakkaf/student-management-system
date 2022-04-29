@@ -49,7 +49,7 @@ import com.qa.student_management_system.service.CourseService;
 		public ResponseEntity<CourseDTO> createCourse(@Valid @RequestBody NewCourseDTO course) {
 			CourseDTO newCourse = courseService.createCourse(course);		
 			HttpHeaders headers = new HttpHeaders();
-			headers.add("Location", "http://localhost:8080/user/" + newCourse.getId());
+			headers.add("Location", "http://localhost:8080/course/" + newCourse.getId());
 			return new ResponseEntity<>(newCourse, headers, HttpStatus.CREATED);
 		}
 		
